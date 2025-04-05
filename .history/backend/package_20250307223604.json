@@ -1,0 +1,15 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "newsportal",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "dev": "nodemon"
+  },
+  "author": "soniya",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

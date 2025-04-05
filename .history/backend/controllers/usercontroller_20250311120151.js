@@ -1,0 +1,1 @@
+export const updateUser = async(req,resizeBy,next)
