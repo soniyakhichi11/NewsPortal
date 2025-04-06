@@ -27,7 +27,7 @@ const formSchema = z.object({
 })
 
 
-const SignUpForm= () => {
+const SignInForm= () => {
 
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -145,4 +145,4 @@ const SignUpForm= () => {
   )
 }
 
-export default SignUpForm
+export default SignInForm
