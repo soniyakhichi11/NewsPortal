@@ -5,6 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import { Toaster, toast } from "sonner";
+import API from "@/utils/api"
 
 import {
   Form,
@@ -43,7 +44,7 @@ const SignUpForm= () => {
     try{
         setLoading(true)
         setErrorMessage(null)
-      const res= await fetch("/api/auth/signup",{
+      const res= await fetch(`${API}/api/auth/signup`,{
         method:"POST",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(values),
