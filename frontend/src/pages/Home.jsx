@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import API from "@/utils/api"
 
 const Home = () => {
   const [posts, setPosts] = useState([])
@@ -12,7 +13,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/post/getPosts?limit=6")
+      const res = await fetch(`${API}/api/post/getPosts?limit=6`)
 
       const data = await res.json()
 

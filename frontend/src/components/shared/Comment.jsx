@@ -4,7 +4,7 @@ import { useSelector } from "react-redux"
 import { AiFillLike } from "react-icons/ai"
 import { Textarea } from "../ui/textarea"
 import { Button } from "../ui/button"
-
+import API from "@/utils/api"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -29,7 +29,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await fetch(`/api/user/${comment.userId}`)
+        const res = await fetch(`${API}/api/user/${comment.userId}`)
 
         const data = await res.json()
 
@@ -51,7 +51,7 @@ const Comment = ({ comment, onLike, onEdit, onDelete }) => {
 
   const handleSave = async () => {
     try {
-      const res = await fetch(`/api/comment/editComment/${comment._id}`, {
+      const res = await fetch(`${API}/api/comment/editComment/${comment._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

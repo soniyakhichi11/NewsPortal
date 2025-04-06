@@ -24,6 +24,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "../ui/alert-dialog"
+import API from "@/utils/api"
 
 const DashboardProfile = () => {
   const { currentUser, error, loading } = useSelector((state) => state.user)
@@ -80,7 +81,7 @@ const DashboardProfile = () => {
         profilePicture,
       }
 
-      const res = await fetch(`/api/user/update/${currentUser._id}`, {
+      const res = await fetch(`${API}/api/user/update/${currentUser._id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -108,7 +109,7 @@ const DashboardProfile = () => {
     try {
       dispatch(deleteUserStart())
 
-      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+      const res = await fetch(`${API}/api/user/delete/${currentUser._id}`, {
         method: "DELETE",
       })
 
@@ -127,7 +128,7 @@ const DashboardProfile = () => {
 
   const handleSignout = async () => {
     try {
-      const res = await fetch("/api/user/signout", {
+      const res = await fetch(`${API}/api/user/signout`, {
         method: "POST",
       })
 

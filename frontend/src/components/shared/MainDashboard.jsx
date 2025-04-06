@@ -4,6 +4,7 @@ import DashboardCard from "./DashboardCard"
 import { convertToReadableFormat } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { Link } from "react-router-dom"
+import API from "@/utils/api"
 import {
   Table,
   TableBody,
@@ -35,7 +36,7 @@ const MainDashboard = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await fetch("/api/user/getusers?limit=5")
+        const res = await fetch(`${API}/api/user/getusers?limit=5`)
 
         const data = await res.json()
 
@@ -51,7 +52,7 @@ const MainDashboard = () => {
 
     const fetchPosts = async () => {
       try {
-        const res = await fetch("/api/post/getposts?limit=5")
+        const res = await fetch(`${API}/api/post/getposts?limit=5`)
 
         const data = await res.json()
 
@@ -67,7 +68,7 @@ const MainDashboard = () => {
 
     const fetchComments = async () => {
       try {
-        const res = await fetch("/api/comment/getcomments?limit=5")
+        const res = await fetch(`${API}/api/comment/getcomments?limit=5`)
 
         const data = await res.json()
 

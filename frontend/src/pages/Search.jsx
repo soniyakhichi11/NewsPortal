@@ -13,6 +13,7 @@ import {
 import { Separator } from "@/components/ui/separator"
 import React, { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
+import API from "@/utils/api"
 
 const Search = () => {
   const location = useLocation()
@@ -55,7 +56,7 @@ const Search = () => {
 
       const searchQuery = urlParams.toString()
 
-      const res = await fetch(`/api/post/getposts?${searchQuery}`)
+      const res = await fetch(`${API}/api/post/getposts?${searchQuery}`)
 
       if (!res.ok) {
         setLoading(false)
@@ -107,7 +108,7 @@ const Search = () => {
 
     const searchQuery = urlParams.toString()
 
-    const res = await fetch(`/api/post/getposts?${searchQuery}`)
+    const res = await fetch(`${API}/api/post/getposts?${searchQuery}`)
 
     if (!res.ok) {
       return

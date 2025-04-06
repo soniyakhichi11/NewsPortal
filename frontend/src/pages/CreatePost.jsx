@@ -8,6 +8,7 @@ import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import { Toaster, toast } from "sonner";
 import { getFileView,uploadFile } from '@/lib/appwrite/uploadimage'
+import API from "@/utils/api"
 import { useNavigate } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 const CreatePost = () => {
@@ -55,7 +56,7 @@ const CreatePost = () => {
   const handleSubmit =async(e)=>{
     e.preventDefault()
     try {
-      const res = await fetch("/api/post/create",{
+      const res = await fetch(`${API}/api/post/create`,{
         method:"POST",
         headers:{
           "Content-Type":"application/json"

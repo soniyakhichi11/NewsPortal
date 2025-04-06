@@ -13,7 +13,7 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
   } from "../ui/alert-dialog"
-  
+  import API from "@/utils/api"  
 
 const DashboardPost = () => {
 
@@ -24,7 +24,7 @@ const DashboardPost = () => {
     useEffect(()=>{
         const fetchPosts = async()=>{
             try {
-                const res = await fetch(`/api/post/getposts?userId=${currentUser._id}`)
+                const res = await fetch(`${API}/api/post/getposts?userId=${currentUser._id}`)
                 const data = await res.json()
                 if(res.ok){
                     setUserPosts(data.posts)
@@ -47,7 +47,7 @@ const DashboardPost = () => {
     const handleShowMore = async()=>{
         const startIndex = userPosts.length
         try {
-            const res =  await fetch(`/api/post/getposts?userId=${currentUser._id}& ${startIndex}`)
+            const res =  await fetch(`${API}/api/post/getposts?userId=${currentUser._id}& ${startIndex}`)
 
             const data = await res.json()
             if(res.ok){
@@ -64,7 +64,7 @@ const DashboardPost = () => {
 
     const handleDeletePost = async()=>{
         try {
-            const res = await fetch(`/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
+            const res = await fetch(`${API}/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
                 {
                     method:"DELETE",
             })

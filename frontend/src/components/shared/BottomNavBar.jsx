@@ -5,12 +5,13 @@ import {useDispatch} from 'react-redux'
 import { signOutSuccess } from '@/redux/user/userSlice';
 import { IoIosCreate, IoIosDocument } from 'react-icons/io';
 import { useSelector } from 'react-redux';
+import API from "@/utils/api"
 const BottomNavBar = () => {
   const dispatch = useDispatch()
   const {currentUser} = useSelector(state => state.user)
     const handleSignout = async()=>{
         try {
-                const res = await fetch("/api/user/signout",{
+                const res = await fetch(`${API}/api/user/signout`,{
                     method:"POST"
                 })
         

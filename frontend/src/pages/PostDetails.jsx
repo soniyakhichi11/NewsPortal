@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-
+import API from "@/utils/api"
 const PostDetails = () => {
     const {postSlug} = useParams()
     const [loading,setLoading] = useState(true)
@@ -16,7 +16,7 @@ const PostDetails = () => {
          const fetchPost = async()=>{
             try {
                 setLoading(true)
-                const res = await fetch(`/api/post/getposts?slug=${postSlug}`)
+                const res = await fetch(`${API}/api/post/getposts?slug=${postSlug}`)
                 const data = await res.json()
 
                 if(!res.ok){

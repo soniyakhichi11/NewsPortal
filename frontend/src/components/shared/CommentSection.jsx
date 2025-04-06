@@ -5,6 +5,7 @@ import { Textarea } from '../ui/textarea'
 import { Button } from '../ui/button'
 import { toast } from 'sonner'
 import Comment from './Comment'
+import API from "@/utils/api"
 const CommentSection = ({ postId }) => {
 
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ const CommentSection = ({ postId }) => {
     }
 
     try {
-      const res = await fetch("/api/comment/create", {
+      const res = await fetch(`${API}/api/comment/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +56,7 @@ const CommentSection = ({ postId }) => {
   useEffect(() => {
     const getComments = async () => {
       try {
-        const res = await fetch(`/api/comment/getPostComments/${postId}`)
+        const res = await fetch(`${API}/api/comment/getPostComments/${postId}`)
 
         if (res.ok) {
           const data = await res.json()
@@ -76,7 +77,7 @@ const CommentSection = ({ postId }) => {
         return
       }
 
-      const res = await fetch(`/api/comment/likeComment/${commentId}`, {
+      const res = await fetch(`${API}/api/comment/likeComment/${commentId}`, {
         method: "PUT",
       })
 
@@ -118,7 +119,7 @@ const CommentSection = ({ postId }) => {
         return
       }
 
-      const res = await fetch(`/api/comment/deleteComment/${commentId}`, {
+      const res = await fetch(`${API}/api/comment/deleteComment/${commentId}`, {
         method: "DELETE",
       })
 

@@ -5,6 +5,7 @@ import {getAuth , GoogleAuthProvider, signInWithPopup} from "firebase/auth"
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { signInSuccess } from '@/redux/user/userSlice'
+import API from "@/utils/api"
 
 export const GoogleAuth = () => {
     const auth = getAuth(app)
@@ -15,7 +16,7 @@ export const GoogleAuth = () => {
         provider.setCustomParameters({prompt:"select_account"})
         try{
             const firebaseResponse = await signInWithPopup(auth,provider)
-            const res = await fetch("/api/auth/google",{
+            const res = await fetch(`${API}/api/auth/google`,{
                 method:"POST",
                 headers:{
                     "Content-Type":"application/json",

@@ -3,7 +3,7 @@ import { useEffect,useState } from 'react';
 import DashboardSidebar from '../components/shared/DashboardSidebar';
 import DashboardProfile from '../components/shared/DashboardProfile';
 import { useLocation } from 'react-router-dom';
-import BottomNavBar from '../components/shared/BottomNavbar';
+import BottomNavBar from '../components/shared/BottomNavBar';
 import DashboardPost from '@/components/shared/DashboardPost';
 import DashboardUsers from '@/components/shared/DashboardUsers';
 import MainDashboard from '@/components/shared/MainDashboard';
