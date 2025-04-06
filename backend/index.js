@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.route.js";
 import userRoutes from "./routes/user.route.js";
 import postRoutes from "./routes/post.route.js";
 import commentRoutes from "./routes/comment.route.js";
+import cors from "cors";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT ||3000;
@@ -15,7 +16,14 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB Connected..."))
 .catch(err => console.log(err)); 
 
-
+app.use(cors({
+    origin: [
+      "http://localhost:5173", // local dev
+      "https://news-portal-8jt21udk4-soniya-khichis-projects.vercel.app" // your deployed frontend
+    ],
+    credentials: true,
+  }));
+  
 app.use("/api/auth",authRoutes);
 app.use("/api/user",userRoutes)
 app.use("/api/post",postRoutes)
