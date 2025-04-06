@@ -19,7 +19,7 @@ export async function uploadFile(file) {
 // Get File Url
 export function getFileView(fileId) {
   try {
-    const fileUrl = storage.getFileView(
+    const fileUrl = storage.getFilePreview(
       appwriteConfig.storageId,
       fileId,
       2000,

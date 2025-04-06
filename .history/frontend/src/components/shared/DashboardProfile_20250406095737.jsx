@@ -57,7 +57,7 @@ const DashboardProfile = () => {
 
     try {
       const uploadedFile = await uploadFile(imageFile)
-      const profilePictureUrl = getFileView(uploadedFile.$id)
+      const profilePictureUrl = getFilePreview(uploadedFile.$id)
 
       return profilePictureUrl
     } catch (error) {

@@ -11,7 +11,7 @@ import {
   updateStart,
   updateSuccess,
 } from "@/redux/user/userSlice"
-import { getFileView, uploadFile } from "@/lib/appwrite/uploadimage"
+import { getFileiew, uploadFile } from "@/lib/appwrite/uploadimage"
 import { Toaster, toast } from "sonner";
 import {
   AlertDialog,
@@ -57,7 +57,7 @@ const DashboardProfile = () => {
 
     try {
       const uploadedFile = await uploadFile(imageFile)
-      const profilePictureUrl = getFileView(uploadedFile.$id)
+      const profilePictureUrl = getFilePreview(uploadedFile.$id)
 
       return profilePictureUrl
     } catch (error) {

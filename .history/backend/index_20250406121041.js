@@ -16,13 +16,14 @@ mongoose.connect(process.env.MONGO_URI)
 .catch(err => console.log(err)); 
 
 
+app.listen(PORT,()=>{
+    console.log("Server is running on port 3000");
+})
 app.use("/api/auth",authRoutes);
 app.use("/api/user",userRoutes)
 app.use("/api/post",postRoutes)
 app.use("/api/comment",commentRoutes)
-app.get('/', (req, res) => {
-    res.send('News Portal Backend is Running');
-  });
+
 
 app.use((err,req,res,next)=>{
     const statusCode = err.statusCode|| 500
@@ -34,8 +35,3 @@ app.use((err,req,res,next)=>{
     })
 })
 
-
-app.listen(PORT,()=>{
-    console.log("Server is running on port 3000");
-})
-  

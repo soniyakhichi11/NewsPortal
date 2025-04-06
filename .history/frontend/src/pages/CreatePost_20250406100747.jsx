@@ -138,7 +138,6 @@ const CreatePost = () => {
               alt="uploaded image"
               className='w-full h-72 object-cover'
               />
-              </>
             )}
             <ReactQuill theme="snow" 
             placeholder='Write something here...'

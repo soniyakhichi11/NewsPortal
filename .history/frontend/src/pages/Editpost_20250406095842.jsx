@@ -72,7 +72,7 @@ const EditPost = () => {
       setImageUploadError(null)
 
       const uploadedFile = await uploadFile(file)
-      const postImageUrl = getFileView(uploadedFile.$id)
+      const postImageUrl = getFilePreview(uploadedFile.$id)
 
       setFormData({ ...formData, image: postImageUrl })
 

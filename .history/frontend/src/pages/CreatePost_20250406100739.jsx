@@ -131,14 +131,13 @@ const CreatePost = () => {
 
             {imageUploadError && <p className='text-red-600'>{imageUploadError}</p>}
             {formData.image &&(
-              <>
+              <></>
               {console.log("Image URL:", formData.image)}
               <img
               src={formData.image}
               alt="uploaded image"
               className='w-full h-72 object-cover'
               />
-              </>
             )}
             <ReactQuill theme="snow" 
             placeholder='Write something here...'

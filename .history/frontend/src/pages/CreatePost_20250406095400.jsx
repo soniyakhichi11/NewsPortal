@@ -7,7 +7,7 @@ import React from 'react'
 import ReactQuill from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 import { Toaster, toast } from "sonner";
-import { getFileView,uploadFile } from '@/lib/appwrite/uploadimage'
+import { getFilePreview,uploadFile } from '@/lib/appwrite/uploadimage'
 import { useNavigate } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 const CreatePost = () => {
@@ -34,7 +34,6 @@ const CreatePost = () => {
        setImageUploadError(null)
        const uploadedFile = await uploadFile(file)
       //  const postImageUrl = getFilePreview(uploadedFile.$id).href;
-      const postImageUrl = getFileView(uploadedFile.$id)
 
        setFormData({...formData, image : postImageUrl})
        console.log("Uploaded image URL: ", postImageUrl)
@@ -131,14 +130,11 @@ const CreatePost = () => {
 
             {imageUploadError && <p className='text-red-600'>{imageUploadError}</p>}
             {formData.image &&(
-              <>
-              {console.log("Image URL:", formData.image)}
               <img
               src={formData.image}
               alt="uploaded image"
               className='w-full h-72 object-cover'
               />
-              </>
             )}
             <ReactQuill theme="snow" 
             placeholder='Write something here...'
