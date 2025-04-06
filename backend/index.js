@@ -17,10 +17,7 @@ mongoose.connect(process.env.MONGO_URI)
 .catch(err => console.log(err)); 
 
 app.use(cors({
-    origin: [
-      "http://localhost:5173", // local dev
-      "https://news-portal-8jt21udk4-soniya-khichis-projects.vercel.app" // your deployed frontend
-    ],
+    origin: true,
     credentials: true,
   }));
   
